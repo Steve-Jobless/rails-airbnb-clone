@@ -8,4 +8,6 @@ class Space < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :address, presence: true, uniqueness: true
   validates :size, presence: true, numericality: { only_integer: true }
+
+  has_one_attached :photo
 end

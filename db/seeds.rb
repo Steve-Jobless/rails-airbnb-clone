@@ -11,7 +11,6 @@ puts "Cleaning the db..."
 Space.destroy_all
 
 
-
 puts 'Creating 10 Users...'
 10.times do
   User.create!(
@@ -23,7 +22,8 @@ puts "...created #{User.count} users"
 
 puts 'Creating 10 Spaces...'
 10.times do
-  Space.create!(
+  file = URI.open('https://cdn01.buxtonco.com/news/2009/istock-531360369__large.jpg')
+  space = Space.create!(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,
     category: Space::CATEGORIES.sample,
@@ -31,8 +31,9 @@ puts 'Creating 10 Spaces...'
     size: 100,
     price: 1000,
     user: User.first
-
   )
+  # Active records requires this specfic format. 
+  space.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
 puts "...created #{Space.count} spaces"
 
