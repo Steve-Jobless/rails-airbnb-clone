@@ -4,5 +4,5 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  enum status: [pending: 0, active: 1, archived: 2]
+  enum status: [:pending, :active, :archived]
 end

@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "Cleaning the db..."
-Space.destroy_all
+# puts "Cleaning the db..."
+# Space.destroy_all
 
 puts 'Creating 10 Spaces...'
 10.times do
@@ -42,7 +42,7 @@ Space.all.each do |space|
   Booking.create!(
   start_date: Date.today,
   end_date: Date.today + 1,
-  status: "booked",
+  status: Booking.statuses.keys.sample,
   user: User.all.sample,
   space: space
   )
