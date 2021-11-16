@@ -7,8 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+
+
 puts "Cleaning the db..."
 Space.destroy_all
+
+
+puts 'Creating 10 Users...'
+10.times do
+  User.create!(
+    email:Faker::Internet.email,
+    password: "123123"
+  )
+end
+puts "...created #{User.count} users"
 
 puts 'Creating 10 Spaces...'
 10.times do
@@ -27,14 +39,6 @@ puts "...created #{Space.count} spaces"
 
 
 
-puts 'Creating 10 Users...'
-10.times do
-  User.create!(
-    email:Faker::Internet.email,
-    password: "123123"
-  )
-end
-puts "...created #{User.count} users"
 
 
 puts 'Creating 10 Booking...'
