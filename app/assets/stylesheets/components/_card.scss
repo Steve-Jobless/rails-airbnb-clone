@@ -16,11 +16,46 @@
 
 
 .card-product {
+  margin: 0;
   overflow: hidden;
-  height: auto;
+  // height: auto;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+
+  .card-product-infos {
+  padding: 16px;
+
+  }
+  .card-product-img {
+  }
+  h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  }
+
+  p {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  }
 }
+
+a {
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+  }
 
 .thumbnail-holder {
   height: 240px;
@@ -54,22 +89,6 @@
   }
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.5;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-}
 
 .rating-background {
   position: relative;
@@ -87,16 +106,6 @@
   overflow: hidden;
 }
 
-.card-product {
-  a {
-    text-decoration: none;
-    color: rgb(10, 10, 10);
-  }
-}
-
-.card-product .card-product-infos {
-  padding: 16px;
-}
 
 .card-trip {
   overflow: hidden;
@@ -137,83 +146,81 @@
   width: 40px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
-
-img {
-  width: 100%;
-}
-
-/* // Smallest device */
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 16px;
+// }
 
 
 
-.card-feature {
-  overflow: hidden;
-  height: 70px;
-  // background: white;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-}
+// /* // Smallest device */
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.card-feature img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
-}
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.card-feature h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.card-feature p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-.card-feature .card-feature-infos {
-  padding: 16px;
-}
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .cards {
+//     grid-template-columns: 1fr ;
+//   }
+// }
+
+
+
+// .card-feature {
+//   overflow: hidden;
+//   height: 70px;
+//   // background: white;
+//   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 8px;
+// }
+
+// .card-feature img {
+//   height: 100%;
+//   width: 120px;
+//   object-fit: cover;
+// }
+
+// .card-feature h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .card-feature p {
+//   font-size: 12px;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 8px;
+// }
+
+// .card-feature .card-feature-infos {
+//   padding: 16px;
+// }
