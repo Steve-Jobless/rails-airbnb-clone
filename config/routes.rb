@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:update]
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
+  
 
 end

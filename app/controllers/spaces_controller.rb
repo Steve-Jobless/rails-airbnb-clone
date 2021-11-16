@@ -1,5 +1,6 @@
 class SpacesController < ApplicationController
   def new
+    # authorize @restaurant
     @space = Space.new
   end
 
@@ -23,6 +24,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :description, :price, :category, :size, :address)
+    params.require(:space).permit(:name, :description, :price, :category, :size, :address, :photo)
   end
 end
