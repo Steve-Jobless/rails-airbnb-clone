@@ -1,6 +1,5 @@
 <div class="container flex">
   <div class="row flex-column">
-    <h1>Spaces#show</h1><br>
     <h2 class="space-name"><%= @space.name %></h2>
     <p><%= @space.address %></p>
     <img src="https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg" style="height:300px;">
@@ -35,14 +34,21 @@
 
     <div class="reservation-container col-12 col-lg-5">
       <div class="reservation-box p-5">
-        <div class="reservation-details d-flex flex-column">
+        <div class="reservation-details d-flex flex-column align-itmes-end">
           <h2><strong>¥<%= @space.price %></strong> / day</h2>
-          <%= simple_form_for @space do |f| %>
-            <span>check in</span><%= f.input :name %>
-            <span>check out</span><%= f.input :name %>
-            <span>???</span><%= f.submit class: 'btn btn-secondary btn-submit' %>
+          <%= simple_form_for [@space, @booking] do |f| %>
+          　<div class="d-flex flex-column justify-content-center">
+              <%= f.input :start_date, class: 'form-control' %>
+              <%= f.input :end_date %>
+              <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3' %>
+            </div>
           <% end %>
         </div>
+      <p style="font-size:14px">wwwww ×  days</p>
+      <div class="box-total d-flex justify-content-between">
+        <p style="font-size:24px">Total : </p>
+        <p style="font-size:24px">¥ <%= @space.price * 2 %></p>
+      </div>
       </div>
     </div>
   </div>
