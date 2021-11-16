@@ -1,19 +1,56 @@
-
-
   <div class="hero">
     <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px;">
       <div class="container text-center">
-        <h1 class="text-white">WELCOME TO Airbnb CLONE!</h1>
-        <p class="text-white">Find me in app/views/pages/home.html.erb</p>
         <div class="search-fome">
-        <form action="" method="post">
-          <input type="date" name="start_date" id="">
-        </form>
-          <%# <%= simple_form_for user do |f| %>
-            <%#= f.input :name %>
-            <%#= f.submit class: 'btn btn-secondary' %>
-          <%# end %>
+          <form action="index" method="post" class="form-inline" >
+            <label for="Location">Location</label>
+            <input type="search" name="location" class="form-control rounded" id="">
+            <label for="start_date">Start date</label>
+            <input type="date" name="start_date" class="form-control rounded" id="">
+            <label for="end_date">End date</label>
+            <input type="date" name="end_date" class="form-control rounded" id="">
+            <button type="button" class="btn btn-outline-primary ml-3">search</button>
+          </form>
+        <h1 class="text-white">Pop a pop-up shop!</h1>
+        <p class="text-white" style="padding-bottom: 100px">Find me in app/views/pages/home.html.erb</p>
         </div>
+        <h1 class="text-white">Hot Spots</h1>
+        <div class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <img src="https://source.unsplash.com/300x300/random" alt="">
+              </li>
+              <li class="splide__slide">
+                <img src="https://source.unsplash.com/300x300/random" alt="">
+              </li>
+              <li class="splide__slide">
+                <img src="https://source.unsplash.com/300x300/random" alt="">
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <%# <div class="cards">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+            Shibuya
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+            Ginza
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
+            Yokohama
+          </div>
+        </div> %>
       </div>
     </div>
  </div>
+
+
+<%# <%= simple_form_for user do |f| %>
+  <%#= f.input :name %>
+  <%#= f.submit class: 'btn btn-secondary' %>
+<%# end %>
