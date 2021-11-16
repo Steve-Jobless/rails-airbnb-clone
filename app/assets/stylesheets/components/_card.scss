@@ -143,11 +143,6 @@
   grid-gap: 16px;
 }
 
-img {
-  width: 100%;
-}
-
-/* // Smallest device */
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
@@ -181,7 +176,6 @@ img {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-
 
 
 .card-feature {
