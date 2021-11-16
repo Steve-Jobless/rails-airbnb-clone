@@ -1,15 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between mb-3">
-  <h1 class="nav-title px-5">
+<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between mb-3 navbar-lewagon">
+  <h1 class="nav-title px-3">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fas fa-store"></i> Rails RailsAirbnbClone
     <% end %>
   </h1>
-  <div class="btn d-flex justify-content-around col-lg-2 col-md-4">
-    <%= link_to root_path, class: "btn btn-primary p-3" do %>
-      <i class="fas fa-film"></i> Sign up
-    <% end %>
-    <%= link_to root_path, class: "btn btn-success p-3" do %>
-      <i class="fas fa-film"></i> Log in
-    <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto header-btn">
+      <li class="nav-item mr-3">
+        <%= link_to root_path, class: "btn btn-primary py-2 px-5" do %>
+          <i class="fas fa-film"></i> Sign up
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to root_path, class: "btn btn-success py-2 px-5 text-white" do %>
+          <i class="fas fa-film"></i> Log in
+        <% end %>
+      </li>
+    </ul>
   </div>
 </nav>

@@ -1,19 +1,37 @@
 
 
   <div class="hero">
-    <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px;">
+    <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px 0;">
       <div class="container text-center">
         <h1 class="text-white">WELCOME TO Airbnb CLONE!</h1>
         <p class="text-white">Find me in app/views/pages/home.html.erb</p>
-        <div class="search-fome">
-        <form action="" method="post">
-          <input type="date" name="start_date" id="">
-        </form>
-          <%# <%= simple_form_for user do |f| %>
+        <div class="search-container">
+          <div class="search-box">
+            <div class="input-area">
+              <div class="location-box" style="flex: 2 0 0%">location</div>
+              <div class="startdate-box" style="flex: 1 0 0%">start</div>
+              <div class="enddate-box" style="flex: 1 0 0%">end</div>
+              <p><%= @space %></p>
+              <form action="" method="post">
+                <input type="text" name="location" id="">
+                <input type="date" name="start_date" id="">
+                <input type="data" name="end_date" id="">
+              </form>
+              <div class="search-icon">
+              <i class="fas fa-search text-white"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+          <%#= simple_form_for @space do |f| %>
             <%#= f.input :name %>
             <%#= f.submit class: 'btn btn-secondary' %>
           <%# end %>
         </div>
       </div>
     </div>
+ </div>
+ <div class="container">
+  <h2>Spaces</h2>
+
  </div>
