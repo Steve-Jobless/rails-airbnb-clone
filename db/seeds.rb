@@ -16,22 +16,27 @@ puts 'Creating 10 Users...'
 10.times do
   User.create!(
     email:Faker::Internet.email,
-    password: "123123"
+    password: "123123",
+    name: Faker::Hipster.word,
   )
 end
 puts "...created #{User.count} users"
 
 puts 'Creating 10 Spaces...'
-10.times do
-  file = URI.open('https://cdn01.buxtonco.com/news/2009/istock-531360369__large.jpg')
+10.times do |i|
+  file = URI.open("http://source.unsplash.com/featured/?#{Space::CATEGORIES.sample}&#{rand(1000)}")
   space = Space.create!(
     name: Faker::Hipster.word,
-    address: ["2 Chome-11-3 Meguro, Meguro City, Tokyo 153-0063", "5 Chome-24-2 Sendagaya, Shibuya City, Tokyo 151-8580", "1 Chome−７ Kanagawa, Yokohama, 225-0002", "1 Chome-22-6 Jinnan, Shibuya City, Tokyo 150-0041" ]
+    address: Space::TENTATIVE_ADDRESSES[i],
     category: Space::CATEGORIES.sample,
-    description: "Ipsum lorem",
-    size: [10..200].to_a.sample,
-    price: [800..10_000].to_a.sample,
-    user: User.first
+    description: Faker::Restaurant.description[0..20],
+    size: rand(10..200),
+    price: rand(800..10_000),
+    user: User.first,
+    neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
+    safety_note: Space::SAFETY_NOTE.sample,
+    amenities: Space::AMENITIES.sample
+
   )
   # Active records requires this specfic format.
   space.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
