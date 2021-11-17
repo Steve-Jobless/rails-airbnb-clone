@@ -1,35 +1,22 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
-<div class="container">
-  <div class="row">
-    <div class="card-trip-popup">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-      </div>
-    </div>
-  </div>
-
 <div class="container">
   <h1>My travel</h1>
   <h2>Here are your bookings:</h2>
-  <div class="booking-container">
-    <% @bookings.each do |booking| %>
-    <div class="cards">
-      <div class="card-trip">
-        <div class="card-trip-infos">
-          <%= booking.id %>
-          <%= booking.start_date %>
-          <%= booking.end_date %>
-          <h3><%= booking.space.name %></h3>
+      <% @bookings.each do |booking| %>
+      <div class="cards">
+        <div class="card-trip-popup">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <p>from: <%= booking.start_date %></p>
+              <p>to: <%= booking.end_date %></p>
+              <h3><%= booking.space.name %></h3>
+            </div>
+            <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
+            <p class="card-trip-user avatar-square">#<%= booking.id %></p>
+          </div>
         </div>
       </div>
-    </div>
-    <% end %>
+      <% end %>
+
   </div>
 </div>
