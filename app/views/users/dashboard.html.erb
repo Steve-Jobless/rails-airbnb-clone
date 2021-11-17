@@ -17,7 +17,7 @@
               <h3><%= booking.space.name %></h3>
               <h5><%= booking.space.address %></h4>
             </div>
-            <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
+            <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date + 1).to_i * booking.space.price %></h2>
             <p class="card-trip-user avatar-square"> # <%= booking.id %></p>
           </div>
         </div>
