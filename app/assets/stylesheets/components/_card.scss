@@ -146,6 +146,12 @@ a {
   width: 40px;
 }
 
+.card-trip-popup > img {
+  height: 300px;
+  width: 400px;
+  object-fit: contain;
+}
+
 // .cards {
 //   display: grid;
 //   grid-template-columns: 1fr 1fr;

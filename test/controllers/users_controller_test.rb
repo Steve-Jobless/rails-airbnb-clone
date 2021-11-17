@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should get dashboard" do
+    get users_dashboard_url
+    assert_response :success
+  end
 end
