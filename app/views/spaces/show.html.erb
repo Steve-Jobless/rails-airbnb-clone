@@ -1,7 +1,6 @@
 <div class="container flex">
   <div class="row flex-column">
-    <h2 class="space-name"><%= @space.name %></h2>
-    <p><%= @space.address %></p>
+
     <img src="https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg" style="height:300px;">
   </div>
   <div class="row mb-4">
@@ -10,27 +9,51 @@
       <div class="notification">
         <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
         <div class="notification-content">
-          <p><h2 class="space-name"><%= @space.user.email %></h2></p>
+          <p><h2 class="space-name"><%= @space.name %></h2></p>
           <p><%= @space.address %></p>
         </div>
       </div>
     </div>
-      <div class="card-feature">
+    <div class="card-features mb-5">
+      <div class="card-feature text-center">
         <div class="card-feature-icon" style="width:120px">
-          <i class="fas fa-hand-sparkles"></i>
+          <i class="fas fa-store" style="font-size: 50px"></i>
         </div>
         <div class="card-feature-product">
-          <h2>tetttttttttt</h2>
-          <p>testtesttest</p>
+          <h2>Category</h2>
+          <p><%= @space.category %></p>
         </div>
       </div>
-      <div class="card-feature">
+      <div class="card-feature text-center">
+        <div class="card-feature-icon" style="width:120px">
+          <i class="fas fa-wifi" style="font-size: 50px"></i>
+        </div>
         <div class="card-feature-product">
-          <h2>tetttttttttt</h2>
-          <p>testtesttest</p>
+          <h2>Amenities</h2>
+          <p><%= @space.amenities %></p>
         </div>
       </div>
+      <div class="card-feature text-center">
+        <div class="card-feature-icon" style="width:120px">
+          <i class="fas fa-male" style="font-size: 50px"></i>
+        </div>
+        <div class="card-feature-product">
+          <h2>Neighborhood</h2>
+          <p><%= @space.neighborhood %></p>
+        </div>
+      </div>
+      <div class="card-feature text-center">
+        <div class="card-feature-icon" style="width:120px">
+          <i class="fas fa-exclamation-circle" style="font-size: 50px"></i>
+        </div>
+        <div class="card-feature-product">
+          <h2>Safety note</h2>
+          <p><%= @space.safety_note %></p>
+        </div>
+      </div>
+    </div>
       <div class="description">
+      <h2>Description</h2>
         <p><%= @space.description %></p>
       </div>
     </div>
@@ -62,7 +85,7 @@
 <div class="container">
   <h2>Where you'll be</h2>
   <p><%= @space.address %></p>
-  <div class="map">☆☆☆☆☆☆☆☆☆☆Map here☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆</div>
+  <div class="map">MAP Here</div>
 </div>
 
 
