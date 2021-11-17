@@ -1,127 +1,126 @@
 <div class="container flex">
   <div class="row flex-column">
-
     <img src="https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg" style="height:300px;">
   </div>
   <div class="row mb-4">
     <div class="space-detail p-4 col-12 col-lg-7">
-    <div class="user-box py-4">
-      <div class="notification">
-        <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-        <div class="notification-content">
-          <p><h2 class="space-name"><%= @space.name %></h2></p>
-          <p><%= @space.address %></p>
+      <div class="user-box py-4">
+        <div class="notification">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <div class="notification-content">
+            <p>
+              <h2 class="space-name"><%= @space.name %></h2>
+            </p>
+            <p><%= @space.address %></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card-features mb-5">
-      <div class="card-feature text-center">
-        <div class="card-feature-icon" style="width:120px">
-          <i class="fas fa-store" style="font-size: 50px"></i>
+      <div class="card-features mb-5">
+        <div class="card-feature text-center">
+          <div class="card-feature-icon" style="width:120px">
+            <i class="fas fa-store" style="font-size: 50px"></i>
+          </div>
+          <div class="card-feature-product">
+            <h2>Category</h2>
+            <p><%= @space.category %></p>
+          </div>
         </div>
-        <div class="card-feature-product">
-          <h2>Category</h2>
-          <p><%= @space.category %></p>
+        <div class="card-feature text-center">
+          <div class="card-feature-icon" style="width:120px">
+            <i class="fas fa-wifi" style="font-size: 50px"></i>
+          </div>
+          <div class="card-feature-product">
+            <h2>Amenities</h2>
+            <p><%= @space.amenities %></p>
+          </div>
+        </div>
+        <div class="card-feature text-center">
+          <div class="card-feature-icon" style="width:120px">
+            <i class="fas fa-male" style="font-size: 50px"></i>
+          </div>
+          <div class="card-feature-product">
+            <h2>Neighborhood</h2>
+            <p><%= @space.neighborhood %></p>
+          </div>
+        </div>
+        <div class="card-feature text-center">
+          <div class="card-feature-icon" style="width:120px">
+            <i class="fas fa-exclamation-circle" style="font-size: 50px"></i>
+          </div>
+          <div class="card-feature-product">
+            <h2>Safety note</h2>
+            <p><%= @space.safety_note %></p>
+          </div>
         </div>
       </div>
-      <div class="card-feature text-center">
-        <div class="card-feature-icon" style="width:120px">
-          <i class="fas fa-wifi" style="font-size: 50px"></i>
-        </div>
-        <div class="card-feature-product">
-          <h2>Amenities</h2>
-          <p><%= @space.amenities %></p>
-        </div>
-      </div>
-      <div class="card-feature text-center">
-        <div class="card-feature-icon" style="width:120px">
-          <i class="fas fa-male" style="font-size: 50px"></i>
-        </div>
-        <div class="card-feature-product">
-          <h2>Neighborhood</h2>
-          <p><%= @space.neighborhood %></p>
-        </div>
-      </div>
-      <div class="card-feature text-center">
-        <div class="card-feature-icon" style="width:120px">
-          <i class="fas fa-exclamation-circle" style="font-size: 50px"></i>
-        </div>
-        <div class="card-feature-product">
-          <h2>Safety note</h2>
-          <p><%= @space.safety_note %></p>
-        </div>
-      </div>
-    </div>
       <div class="description">
-      <h2>Description</h2>
+        <h2>Description</h2>
         <p><%= @space.description %></p>
       </div>
     </div>
-
     <div class="reservation-container col-12 col-lg-5">
       <div class="reservation-box p-5">
         <div class="reservation-details d-flex flex-column align-itmes-end">
           <h2><strong>¥<span class="price"><%= @space.price %></span></strong> / day</h2>
           <%= simple_form_for [@space, @booking] do |f| %>
-          　<div class="d-flex flex-column justify-content-center">
+            　
+            <div class="d-flex flex-column justify-content-center">
               <%= f.input :start_date, class: 'start_date form-control' %>
               <%= f.input :end_date, class: 'end_date form-control'  %>
-	            <%= f.hidden_field :user_id, value: @space.user_id %>
+              <%= f.hidden_field :user_id, value: @space.user_id %>
               <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'Booking !', "data-toggle":"modal", "data-target":"#exampleModalCenter" %>
             </div>
           <% end %>
         </div>
-      <p style="font-size:14px"><span id="reservation_nights">1</span> days</p>
-      <div class="box-total d-flex justify-content-between">
-        <p style="font-size:24px">Total : </p>
-        <p style="font-size:24px">¥ <span id="reservation_total"><%= @space.price %></span></p>
-      </div>
+        <p style="font-size:14px"><span id="reservation_nights">1</span> days</p>
+        <div class="box-total d-flex justify-content-between">
+          <p style="font-size:24px">Total : </p>
+          <p style="font-size:24px">¥ <span id="reservation_total"><%= @space.price %></span></p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <div class="container">
   <h2>Where you'll be</h2>
   <p><%= @space.address %></p>
-  <div class="map">MAP Here</div>
+  <div class="map">
+    <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/139.7381,35.6634,11.65,0/600x300?access_token=pk.eyJ1IjoiaGlyb2Z1bWktcGFtcGtpbiIsImEiOiJja3ZjMGphZ2swbDV4MzFxZ3d5a2NoNnVjIn0.NbwCrl7r9rMREItk9X9TLQ'>
+  </div>
 </div>
-
-
 <script>
-const price = document.querySelector('.price').innerText;
-let start_year = document.querySelector('#booking_start_date_1i').selectedValue;
-let start_month = document.querySelector('#booking_start_date_2i');
-let start_day = document.querySelector('#booking_start_date_3i');
-let end_year = document.querySelector('#booking_end_date_1i');
-let end_month = document.querySelector('#booking_end_date_2i');
-let end_day = document.querySelector('#booking_end_date_3i');
-let reservation_nights = document.querySelector('#reservation_nights');
-let reservation_totals = document.querySelector('#reservation_total');
-let start = new Date(2021, start_month.value, start_day.value)
-let end = new Date(2021, end_month.value, end_day.value)
-
-end_day.addEventListener("change", (event) => {
-  event.preventDefault();
-  start_year = document.querySelector('#booking_start_date_1i').value;
-  start_month = document.querySelector('#booking_start_date_2i').value;
-  start_day = document.querySelector('#booking_start_date_3i').value;
-  end_year = document.querySelector('#booking_end_date_1i').value;
-  end_month = document.querySelector('#booking_end_date_2i').value;
-  end_day = document.querySelector('#booking_end_date_3i').value;
-  reservation_nights = document.querySelector('#reservation_nights');
-  reservation_totals = document.querySelector('#reservation_total');
-  start = new Date(start_year, start_month, start_day)
-  end = new Date(end_year, end_month, end_day)
-  console.log(`Reserve：${start}から${end}まで`);
-
-  const nights = (end - start)/ 86400000 + 1;
-  console.log(nights);
-  reservation_nights.innerHTML ='';
-  reservation_total.innerHTML ='';
-  console.log('Done');
-  reservation_nights.insertAdjacentHTML('beforeend', `${nights}`);
-  reservation_total.insertAdjacentHTML('beforeend', `${nights * price}`);
-});
+  const price = document.querySelector('.price').innerText;
+  let start_year = document.querySelector('#booking_start_date_1i').selectedValue;
+  let start_month = document.querySelector('#booking_start_date_2i');
+  let start_day = document.querySelector('#booking_start_date_3i');
+  let end_year = document.querySelector('#booking_end_date_1i');
+  let end_month = document.querySelector('#booking_end_date_2i');
+  let end_day = document.querySelector('#booking_end_date_3i');
+  let reservation_nights = document.querySelector('#reservation_nights');
+  let reservation_totals = document.querySelector('#reservation_total');
+  let start = new Date(2021, start_month.value, start_day.value)
+  let end = new Date(2021, end_month.value, end_day.value)
+  
+  end_day.addEventListener("change", (event) => {
+    event.preventDefault();
+    start_year = document.querySelector('#booking_start_date_1i').value;
+    start_month = document.querySelector('#booking_start_date_2i').value;
+    start_day = document.querySelector('#booking_start_date_3i').value;
+    end_year = document.querySelector('#booking_end_date_1i').value;
+    end_month = document.querySelector('#booking_end_date_2i').value;
+    end_day = document.querySelector('#booking_end_date_3i').value;
+    reservation_nights = document.querySelector('#reservation_nights');
+    reservation_totals = document.querySelector('#reservation_total');
+    start = new Date(start_year, start_month, start_day)
+    end = new Date(end_year, end_month, end_day)
+    console.log(`Reserve：${start}から${end}まで`);
+  
+    const nights = (end - start)/ 86400000 + 1;
+    console.log(nights);
+    reservation_nights.innerHTML ='';
+    reservation_total.innerHTML ='';
+    console.log('Done');
+    reservation_nights.insertAdjacentHTML('beforeend', `${nights}`);
+    reservation_total.insertAdjacentHTML('beforeend', `${nights * price}`);
+  });
 </script>
