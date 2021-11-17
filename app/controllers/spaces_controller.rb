@@ -1,6 +1,6 @@
 class SpacesController < ApplicationController
   def new
-    # authorize @restaurant
+    # authorize @space
     @space = Space.new
   end
 

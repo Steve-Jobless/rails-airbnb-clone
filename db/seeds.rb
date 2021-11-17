@@ -8,8 +8,9 @@
 
 
 puts "Cleaning the db..."
+Booking.destroy_all
 Space.destroy_all
-
+User.destroy_all
 
 puts 'Creating 10 Users...'
 10.times do
@@ -32,7 +33,7 @@ puts 'Creating 10 Spaces...'
     price: 1000,
     user: User.first
   )
-  # Active records requires this specfic format. 
+  # Active records requires this specfic format.
   space.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
 puts "...created #{Space.count} spaces"
