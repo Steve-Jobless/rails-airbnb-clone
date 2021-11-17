@@ -35,6 +35,7 @@ puts 'Creating 10 Spaces...'
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
+
   )
   # Active records requires this specfic format.
   space.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
