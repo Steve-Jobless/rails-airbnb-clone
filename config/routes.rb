@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :spaces, only: [:new, :create, :index, :show] do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:update]
+  resources :bookings
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
-  
+
 
 end
