@@ -7,12 +7,13 @@ class BookingsController < ApplicationController
     @booking.space = space
     start_date = Date.new(booking_params["start_date(1i)"]&.to_i, booking_params["start_date(2i)"]&.to_i, booking_params["start_date(3i)"]&.to_i)
     end_date = Date.new(booking_params["end_date(1i)"]&.to_i, booking_params["end_date(2i)"]&.to_i, booking_params["end_date(3i)"]&.to_i)
-    user_id = booking_params[:user_id].to_i
+    # user_id = booking_params[:user_id].to_i
+    @booking.user = current_user
 
     @booking.start_date = start_date
     @booking.end_date = end_date
     @booking.status = 0
-    @booking.user_id = user_id
+    # @booking.user_id = user_id
 
     if @booking.save
       redirect_to dashboard_path
