@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>My travel</h1>
+  <ul class="avatar-dashboard">
+    <li><img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /></li>
+    <li><%= current_user.email %></li>
+  </ul>
   <h2>Here are your bookings:</h2>
       <% @bookings.each do |booking| %>
       <div class="cards">
@@ -7,12 +10,15 @@
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
           <div class="card-trip-infos">
             <div>
-              <p>from: <%= booking.start_date %></p>
-              <p>to: <%= booking.end_date %></p>
+              <ul class="avatar-dashboard">
+                <li><p><strong>from: </strong><%= booking.start_date %></p></li>
+                <li><p><strong>to: </strong> <%= booking.end_date %></p></li>
+              </ul>
               <h3><%= booking.space.name %></h3>
+              <h5><%= booking.space.address %></h4>
             </div>
             <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
-            <p class="card-trip-user avatar-square">#<%= booking.id %></p>
+            <p class="card-trip-user avatar-square"> # <%= booking.id %></p>
           </div>
         </div>
       </div>
