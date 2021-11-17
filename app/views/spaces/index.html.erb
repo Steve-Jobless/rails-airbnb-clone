@@ -1,29 +1,33 @@
 <div class="container">
   <h1>Find a great space for your next pop-up project![tentative]</h1>
   <p>To developer: Find me in app/views/spaces/index.html.erb</p>
-    <div class="row">
-      <div class="cards col-12 col-md-6 col-lg-6">
-        <% @spaces.each do |space| %>
-          <%= link_to space_path(space) do %>
+  <div class="row">
+    <div class="cards col-12 col-md-6 col-lg-6">
+      <% @spaces.each do |space| %>
+        <%= link_to space_path(space) do %>
           <div class="card-product mb-2">
-              <div class="card-product-img">
+            <div class="card-product-img">
               <%= cl_image_tag space.photo.key, height: 200, width: 200, crop: :fill %>
-              </div>
-              <div class="card-product-infos">
-                  <h2><%= space.name %></h2>
-                  <p><%= space.category %></p>
-                  <p><%= space.address %></p>
-                  <p><%= space.size %></p>
-                  <span><%= space.description %></span>
-                  <p><%= space.price %></p>
-
-                </div> <!-- product infos-->
-              </div> <!--closing card product-->
-            <% end %>
-           <% end %>
-      </div> <!--closing the cards-->
-      <div id="map" class="col-12 col-md-6 col-lg-6">
-        <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiaGlyb2Z1bWktcGFtcGtpbiIsImEiOiJja3ZjMG52cDMwY2U0MnhtcDNyMXdidnF4In0.WnmVyK-SChT8kzd9nTgWXw'>
-      </div>
-    </div> <!--closing row-->
-</div> <!-- closing container-->
+            </div>
+            <div class="card-product-infos">
+              <h2><%= space.name %></h2>
+              <p><%= space.category %></p>
+              <p><%= space.address %></p>
+              <p><%= space.size %></p>
+              <span><%= space.description %></span>
+              <p><%= space.price %></p>
+            </div>
+             <!-- product infos-->
+          </div>
+           <!--closing card product-->
+        <% end %>
+      <% end %>
+    </div>
+     <!--closing the cards-->
+    <div id="map" class="col-12 col-md-6 col-lg-6">
+      <img src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoiaGlyb2Z1bWktcGFtcGtpbiIsImEiOiJja3ZjMG52cDMwY2U0MnhtcDNyMXdidnF4In0.WnmVyK-SChT8kzd9nTgWXw'>
+    </div>
+  </div>
+   <!--closing row-->
+</div>
+ <!-- closing container-->
