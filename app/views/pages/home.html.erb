@@ -1,26 +1,23 @@
-  <div class="hero">
-    <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px 0;">
+<div class="hero">
+  <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px 0;">
+    <div class="container text-center">
+      <div class="search-fome" style="margin: 0 0 30px 248px;">
+        <form action="index" method="post" class="form-inline" >
+          <label for="Location" class="text-white mx-1">Location</label>
+          <input type="search" name="location" class="form-control rounded " id="">
+          <label for="start_date" class="text-white mx-1">Start date</label>
+          <input type="date" name="start_date" class="form-control rounded" id="">
+          <label for="end_date" class="text-white mx-1">End date</label>
+          <input type="date" name="end_date" class="form-control rounded" id="">
+          <button type="button" class="btn btn-outline-primary ml-3">search</button>
+        </form>
+      </div>
       <div class="container text-center">
-        <div class="search-fome" style="margin: 0 0 30px 248px;">
-          <form action="index" method="post" class="form-inline" >
-            <label for="Location" class="text-white mx-1">Location</label>
-            <input type="search" name="location" class="form-control rounded " id="">
-            <label for="start_date" class="text-white mx-1">Start date</label>
-            <input type="date" name="start_date" class="form-control rounded" id="">
-            <label for="end_date" class="text-white mx-1">End date</label>
-            <input type="date" name="end_date" class="form-control rounded" id="">
-            <button type="button" class="btn btn-outline-primary ml-3">search</button>
-          </form>
-
-
-        </div>
-        <div class="container text-center">
-          <h1 class="text-white">Pop a pop-up shop!</h1>
-          <p class="text-white" style="padding-bottom: 100px">The best deals for space rental</p>
-        </div>
-
-        <h1 class="text-white">Hot Spots</h1>
-        <!-- <div class="splide">
+        <h1 class="text-white">Pop a pop-up shop!</h1>
+        <p class="text-white" style="padding-bottom: 100px">The best deals for space rental</p>
+      </div>
+      <h1 class="text-white">Hot Spots</h1>
+      <!-- <div class="splide">
           <div class="splide__track">
             <ul class="splide__list">
               <%= link_to spaces_path(address:"Shibuya") do %>
@@ -54,31 +51,30 @@
             </ul>
           </div>
         </div> -->
-        </div>
-
-        <div class="cards d-flex">
-        <div class="p-4">
-          <%= link_to spaces_path(address:"Shibuya") do %>
-            <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Ginza-WAKO_at_night.jpg)">
-              Shibuya
-            </div>
-          <% end %>
-        </div>
-        <div class="p-4">
-          <%= link_to spaces_path(address:"Ginza") do %>
-            <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2018/01/25-Things-to-Do-in-Yokohama-lead.jpg)">
-              Ginza
-            </div>
-            <% end %>
-        </div>
-        <div class="p-4">
-          <%= link_to spaces_path(address:"Yokohama") do %>
-            <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/104802508/image.jpg)">
-              Yokohama
-            </div>
-          <% end %>
-        </div>
-        </div>
+    </div>
+    <div class="cards d-flex justify-content-center">
+      <div class="p-4">
+        <%= link_to spaces_path(address:"Shibuya") do %>
+          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/104802508/image.jpg)">
+            Shibuya
+          </div>
+        <% end %>
+      </div>
+      <div class="p-4">
+        <%= link_to spaces_path(address:"Ginza") do %>
+          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Ginza-WAKO_at_night.jpg)">
+            Ginza
+          </div>
+        <% end %>
+      </div>
+      <div class="p-4">
+        <%= link_to spaces_path(address:"Yokohama") do %>
+          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2018/01/25-Things-to-Do-in-Yokohama-lead.jpg)">
+            Yokohama
+          </div>
+        <% end %>
       </div>
     </div>
- </div>
+  </div>
+</div>
+</div>
