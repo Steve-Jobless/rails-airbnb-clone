@@ -12,37 +12,40 @@
             <button type="button" class="btn btn-outline-primary ml-3">search</button>
           </form>
         <h1 class="text-white">Pop a pop-up shop!</h1>
-        <p class="text-white" style="padding-bottom: 100px">Find me in app/views/pages/home.html.erb</p>
+        <p class="text-white" style="padding-bottom: 100px">The best deals for space rental</p>
         </div>
         <h1 class="text-white">Hot Spots</h1>
         <div class="splide">
           <div class="splide__track">
             <ul class="splide__list">
+              <%= link_to spaces_path(address:"Shibuya") do %>
+                <li class="splide__slide">
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg/2560px-Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg)">
+                    Shibuya
+                  </div>
+                </li>
+              <% end %>
+                <%= link_to spaces_path(address:"Ginza") do %>
               <li class="splide__slide">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-                  Shibuya
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-                  Ginza
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-                  Yokohama
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-                  Yokohama
-                </div>
-              </li>
-              <li class="splide__slide">
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random)">
-                  Yokohama
-                </div>
-              </li>
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Ginza-WAKO_at_night.jpg)">
+                    Ginza
+                  </div>
+                </li>
+              <% end %>
+              <%= link_to spaces_path(address:"Ginza") do %>
+                <li class="splide__slide">
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2018/01/25-Things-to-Do-in-Yokohama-lead.jpg)">
+                    Yokohama
+                  </div>
+                </li>
+              <% end %>
+              <%= link_to spaces_path(address:"Ginza") do %>
+                <li class="splide__slide">
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/104802508/image.jpg)">
+                    Shinjuku
+                  </div>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
@@ -64,4 +67,3 @@
       </div>
     </div>
  </div>
-

@@ -26,11 +26,11 @@ puts 'Creating 10 Spaces...'
   file = URI.open('https://cdn01.buxtonco.com/news/2009/istock-531360369__large.jpg')
   space = Space.create!(
     name: Faker::Hipster.word,
-    address: ["2 Chome-11-3 Meguro, Meguro City, Tokyo 153-0063", "5 Chome-24-2 Sendagaya, Shibuya City, Tokyo 151-8580", "1 Chome−７ Kanagawa, Yokohama, 225-0002", "1 Chome-22-6 Jinnan, Shibuya City, Tokyo 150-0041" ]
+    address: ["2 Chome-11-3 Meguro, Meguro City, Tokyo 153-0063", "5 Chome-24-2 Sendagaya, Shibuya City, Tokyo 151-8580", "1 Chome−７ Kanagawa, Yokohama, 225-0002", "1 Chome-22-6 Jinnan, Shibuya City, Tokyo 150-0041" ].sample,
     category: Space::CATEGORIES.sample,
     description: "Ipsum lorem",
-    size: [10..200].to_a.sample,
-    price: [800..10_000].to_a.sample,
+    size: rand(10..200),
+    price: rand(800..10_000),
     user: User.first
   )
   # Active records requires this specfic format.
