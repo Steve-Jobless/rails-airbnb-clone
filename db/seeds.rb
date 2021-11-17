@@ -44,14 +44,14 @@ end
 puts "...created #{Space.count} spaces"
 
 
-puts 'Creating 10 Booking...'
-Space.all.each do |space|
-  Booking.create!(
-  start_date: Date.today,
-  end_date: Date.today + 1,
-  status: Booking.statuses.keys.sample,
-  user: User.all.sample,
-  space: space
-  )
-end
-puts "...created #{Booking.count} booking"
+# puts 'Creating 10 Booking...'
+# Space.all.each do |space|
+#   Booking.create!(
+#   start_date: Date.today,
+#   end_date: Date.today + 1,
+#   status: Booking.statuses.keys.sample,
+#   user: User.all.sample,
+#   space: space
+#   )
+# end
+# puts "...created #{Booking.count} booking"
