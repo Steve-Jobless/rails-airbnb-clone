@@ -7,7 +7,7 @@
       <% @bookings.each do |booking| %>
       <div class="cards">
         <div class="card-trip-popup">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%= cl_image_tag booking.space.photo.key, crop: :fill %>
           <div class="card-trip-infos">
             <div>
               <ul class="avatar-dashboard">
