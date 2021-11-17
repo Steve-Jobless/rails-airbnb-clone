@@ -14,4 +14,22 @@
       </div>
     </div>
   </div>
+
+<div class="container">
+  <h1>My travel</h1>
+  <h2>Here are your bookings:</h2>
+  <div class="booking-container">
+    <% @bookings.each do |booking| %>
+    <div class="cards">
+      <div class="card-trip">
+        <div class="card-trip-infos">
+          <%= booking.id %>
+          <%= booking.start_date %>
+          <%= booking.end_date %>
+          <h3><%= booking.space.name %></h3>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
