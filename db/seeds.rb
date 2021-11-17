@@ -16,7 +16,8 @@ puts 'Creating 10 Users...'
 10.times do
   User.create!(
     email:Faker::Internet.email,
-    password: "123123"
+    password: "123123",
+    name: Faker::Hipster.word,
   )
 end
 puts "...created #{User.count} users"
