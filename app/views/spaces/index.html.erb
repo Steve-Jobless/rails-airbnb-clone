@@ -7,7 +7,7 @@
         <%= link_to space_path(space) do %>
           <div class="card-product mb-2">
             <div class="card-product-img">
-              <%= cl_image_tag space.photo.key, height: 200, width: 200, crop: :fill %>
+              <%= cl_image_tag space.photos.first.key, height: 200, width: 200, crop: :fill %>
             </div>
             <div class="card-product-infos">
               <h2><%= space.name %></h2>
