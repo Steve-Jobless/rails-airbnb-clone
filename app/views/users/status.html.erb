@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row"></div>
+    <% current_user.bookings_as_owner.each do |booking| %>
+      <!-- with the booking card here -->
+      <div class="d-flex justify-content-center">
+        <div>
+          <h4>hi</h4>
+          <h6><%= booking.space.name %></h6>
+        </div>
+        <div>
+          <button class="btn btn-outline-primary">Accept</button>
+          <button class="btn btn-primary">Reject</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
