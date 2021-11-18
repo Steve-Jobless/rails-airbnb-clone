@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :bookings
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
-
+  get "/search", to: 'spaces#index'
 
 end
