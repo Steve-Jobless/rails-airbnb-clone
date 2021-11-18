@@ -1,22 +1,30 @@
 <div class="hero">
-  <div class="background-container" style="background-image: url(https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg); padding: 150px 0;">
+  <div class="background-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'outside.jpg' %>); width: 100%; height: 100%;">
     <div class="container text-center">
-      <div class="search-fome" style="margin: 0 0 30px 248px;">
-        <form action="index" method="post" class="form-inline" >
-          <label for="Location" class="text-white mx-1">Location</label>
-          <input type="search" name="location" class="form-control rounded " id="">
-          <label for="start_date" class="text-white mx-1">Start date</label>
-          <input type="date" name="start_date" class="form-control rounded" id="">
-          <label for="end_date" class="text-white mx-1">End date</label>
-          <input type="date" name="end_date" class="form-control rounded" id="">
-          <button type="button" class="btn btn-outline-primary ml-3">search</button>
-        </form>
+      <div class="container text-center" style="padding:120px 0;">
+        <div class="container text-center pb-5">
+          <h1 class="text-white" style="font-size:32px">Pop a pop-up shop!</h1>
+          <h2 class="text-white">The best deals for space rental</h2>
+        </div>
+        <div class="search-form" style="margin: 0 auto;">
+          <div class="search-container">
+            <div class="search-box">
+              <%= simple_form_for :search, url: search_path, method: :get do |f| %>
+                <div class="search-form-control form-group">
+                  <input class="form-control string required px-5" type="text" name="search[query]" id="search_query" placeholder="Search spaces!"/>
+                  <button name="button" type="submit" class="btn btn-flat">
+                    <i class="fas fa-search h3 mr-3"></i>
+                  </button>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="container text-center">
-        <h1 class="text-white">Pop a pop-up shop!</h1>
-        <p class="text-white" style="padding-bottom: 100px">The best deals for space rental</p>
-      </div>
-      <h1 class="text-white">Hot Spots</h1>
+    </div>
+  </div>
+  <div class="container text-center bg-light py-5 my-5">
+      <h1 style="color:$dark">Hot Spots</h1>
       <!-- <div class="splide">
           <div class="splide__track">
             <ul class="splide__list">
@@ -51,7 +59,6 @@
             </ul>
           </div>
         </div> -->
-    </div>
     <div class="cards d-flex justify-content-center">
       <div class="p-4">
         <%= link_to spaces_path(address:"Shibuya") do %>
@@ -76,5 +83,4 @@
       </div>
     </div>
   </div>
-</div>
 </div>
