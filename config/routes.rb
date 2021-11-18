@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get "/dashboard", to: "users#dashboard", as: :dashboard
   get "/search", to: 'spaces#index'
-
+  post "spaces/new", to: 'spaces#new'
 end
