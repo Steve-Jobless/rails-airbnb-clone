@@ -29,7 +29,7 @@ puts 'Creating 10 Spaces...'
     name: Faker::Hipster.word,
     address: Space::TENTATIVE_ADDRESSES[i],
     category: Space::CATEGORIES.sample,
-    description: Faker::Restaurant.description[0..20],
+    description: Faker::Restaurant.description,
     size: rand(10..200),
     price: rand(800..10_000),
     user: User.first,

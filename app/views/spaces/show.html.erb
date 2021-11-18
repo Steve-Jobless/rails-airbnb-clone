@@ -1,7 +1,7 @@
 <div class="container flex">
   <div class="photo-container">
     <% @space.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 400, crop: :fill, class:"photo-left-round" %>
+      <%= cl_image_tag photo.key, class:"photo-left-round" %>
     <% end %>
     <%= image_tag "http://source.unsplash.com/featured/?#{@space.amenities}" %>
     <%= image_tag "http://source.unsplash.com/featured/?#{@space.category}", class:"photo-right-round" %>
@@ -59,7 +59,7 @@
       </div>
       <div class="description">
         <h2>Description</h2>
-        <p><%= @space.description %></p>
+        <p><%= @space.description.truncate(300, separator: '.') %></p>
       </div>
     </div>
     <div class="reservation-container col-12 col-lg-5">
