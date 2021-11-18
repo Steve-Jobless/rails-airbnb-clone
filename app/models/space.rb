@@ -20,7 +20,6 @@ class Space < ApplicationRecord
   # validates :address, presence: true, uniqueness: true
   validates :size, presence: true, numericality: { only_integer: true }
 
-  has_one_attached :photo
-
+  has_many_attached :photos
 
 end

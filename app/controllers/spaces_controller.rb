@@ -17,6 +17,7 @@ class SpacesController < ApplicationController
     if params[:search].present?
       @spaces = Space.where("address ILIKE ?", "%#{params[:search][:query]}%")
       # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+<<<<<<< HEAD
 
     elsif params[:address].present?
       @spaces = Space.where("address ILIKE ?", "%#{params[:address]}%")
@@ -29,6 +30,19 @@ class SpacesController < ApplicationController
           lng: space.longitude,
           info_window: render_to_string(partial: "info_window", locals: { space: space })
         }
+=======
+    elsif params[:address]
+      @spaces = Space.where("address ILIKE ?", "%#{params[:address]}%")
+    else
+      @spaces = Space.all
+>>>>>>> d75a9148c2eaaef6827a2c0484cf5e92e1994106
+    end
+    @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { space: space })
+      }
     end
   end
 
@@ -48,6 +62,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:name, :description, :price, :category, :size, :address, :photo)
+    params.require(:space).permit(:name, :description, :price, :category, :size, :address, :photos)
   end
 end
