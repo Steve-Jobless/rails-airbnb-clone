@@ -15,7 +15,7 @@ class SpacesController < ApplicationController
 
   def index
     if params[:address]
-    @spaces = Space.where("address LIKE ?", "%#{params[:address]}%")
+    @spaces = Space.where("address ILIKE ?", "%#{params[:address]}%")
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @spaces.geocoded.map do |space|
       {
@@ -32,6 +32,14 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
     @booking = Booking.new
+    @spaces = Space.near([@space.latitude, @space.longitude], 1)
+    @markers = @space && @spaces.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { space: space })
+      }
+    end
   end
 
   private
