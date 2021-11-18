@@ -21,7 +21,7 @@ class SpacesController < ApplicationController
       {
         lat: space.latitude,
         lng: space.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: { space: space })
+        info_window: render_to_string(partial: "info_window", locals: { space: space })
       }
     end
     else
