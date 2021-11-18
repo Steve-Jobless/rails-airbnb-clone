@@ -1,15 +1,11 @@
-class SpacePolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create?
-    true
-  end
-  
-  def show?
+  def dashboard?
     true
   end
 end

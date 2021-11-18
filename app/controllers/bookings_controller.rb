@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.end_date = end_date
     @booking.status = 0
     # @booking.user_id = user_id
-
+    authorize @booking
     if @booking.save
       redirect_to dashboard_path
     else
