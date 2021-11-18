@@ -14,7 +14,7 @@
     <ul class="navbar-nav mr-auto px-3 header-btn d-flex align-items-content">
     <% if user_signed_in? %>
       <li class="nav-item">
-        <%= link_to "#", class: "nav-link mr-4" do %>
+        <%= link_to new_space_path, class: "nav-link mr-4" do %>
         　　<i class="fas fa-magic mr-2"></i>List a space
         <% end %>
       </li>
