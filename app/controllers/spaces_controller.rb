@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
   def new
     @space = Space.new
+    authorize @space
   end
 
   def create
