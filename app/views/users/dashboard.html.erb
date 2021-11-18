@@ -16,12 +16,33 @@
               <div>
                 <h3><%= booking.space.name %></h3>
                 <h5><%= booking.space.address %></h4>
+                <div> <!-- accept and reject of bookings as an owner-->
+       <% if current_user == booking.space.user  %>
+       <div class="booking-actions">
+        <% if booking.pending? %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-info' %>
+          <% end %>
+        <% else %>
+          <p class='booking-tag'><%= booking.status %></p>
+        <% end %>
+      </div>
+      <% else %>
+        <p class='booking-tag'><%= booking.status %></p>
+      <% end %>
+      </div> <!-- closing tag of accept and reject as an owner-->
               </div>
               <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
               <p class="card-trip-user avatar-square"><strong> # <%= booking.id %></strong></p>
             </div>
         </div>
       <% end %>
+
       </div>
   </div>
 </div>

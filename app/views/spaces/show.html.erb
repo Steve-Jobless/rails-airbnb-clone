@@ -65,9 +65,8 @@
           <%= simple_form_for [@space, @booking] do |f| %>
             　
             <div class="d-flex flex-column justify-content-center">
-              <%= f.input :start_date, as: :date, html5: true, class: 'start_date form-control' %>
-              <%= f.input :end_date, as: :date, html5: true, class: 'end_date form-control'  %>
-              <%= f.hidden_field :user_id, value: @space.user_id %>
+              <%= f.input :start_date,  class: 'start_date form-control' %>
+              <%= f.input :end_date,  class: 'end_date form-control'  %>
               <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'Booking !', "data-toggle":"modal", "data-target":"#exampleModalCenter" %>
             </div>
           <% end %>

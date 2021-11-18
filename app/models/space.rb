@@ -1,8 +1,10 @@
 class Space < ApplicationRecord
-  belongs_to :user
-
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  has_many_attached :photos
+  belongs_to :user
+  has_many :bookings
 
   CATEGORIES = ["restaurant", "cafe", "coffee stand", "gallery", "retail space", "food-truck", "atelier"]
   TENTATIVE_ADDRESSES = ["1 Chome-11-3 Meguro,  Tokyo 153-0063",
@@ -20,6 +22,6 @@ class Space < ApplicationRecord
   # validates :address, presence: true, uniqueness: true
   validates :size, presence: true, numericality: { only_integer: true }
 
-  has_many_attached :photos
+
 
 end
