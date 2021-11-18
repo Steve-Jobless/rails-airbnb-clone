@@ -39,7 +39,7 @@ puts 'Creating 10 Spaces...'
 
   )
   # Active records requires this specfic format.
-  space.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
+  space.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
 puts "...created #{Space.count} spaces"
 

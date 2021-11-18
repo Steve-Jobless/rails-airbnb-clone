@@ -1,2 +1,7 @@
 <h1>Spaces#new</h1>
 <p>Find me in app/views/spaces/new.html.erb</p>
+
+<%= simple_form_for @space do |f| %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit  %>
+<% end %>
