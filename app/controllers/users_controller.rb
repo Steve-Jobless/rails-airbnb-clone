@@ -26,4 +26,10 @@ class UsersController < ApplicationController
     @bookings_as_owner = current_user.bookings_as_owner
     @spaces = Space.all.where(user_id: current_user)
   end
+
+  def user_spaces_bookings
+    authorize current_user
+    @bookings_as_owner = current_user.bookings_as_owner
+  end
+
 end

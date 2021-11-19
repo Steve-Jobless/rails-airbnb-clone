@@ -1,9 +1,9 @@
 <div class="container">
   <%= render 'subnavbar' %>
 
-  <h1 class="page-title mb-3">Here are your pending bookings</h1>
+  <h1 class="page-title mb-3">Here are your bookings</h1>
       <div class="row">
-        <% @bookings.each do |booking| %>
+        <% @bookings_as_owner.each do |booking| %>
           <div class="card-trip-popup" style="width:360px">
             <div class="d-flex justify-content-between">
               <div class="p-2"><strong>from: </strong><%= booking.start_date %></div>
@@ -42,3 +42,6 @@
       <% end %>
 
       </div>
+
+</div>
+</div>

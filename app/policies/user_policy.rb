@@ -20,4 +20,8 @@ class UserPolicy < ApplicationPolicy
   def accepted?
     true
   end
+
+  def user_spaces_bookings?
+    true
+  end
 end
