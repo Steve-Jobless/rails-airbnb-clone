@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :bookingsU
   # current_user.booking_as_owner
   has_many :bookings_as_owner, through: :spaces, source: :bookings
-
+  has_one_attached :avatar
 end
