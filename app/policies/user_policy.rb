@@ -9,7 +9,15 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def index
+  def spaces?
+    true
+  end
+
+  def pending?
+    true
+  end
+
+  def accepted?
     true
   end
 end

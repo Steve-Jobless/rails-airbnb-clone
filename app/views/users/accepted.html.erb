@@ -1,0 +1,75 @@
+<div class="container">
+  <ul class="avatar-dashboard">
+    <li><img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /></li>
+    <li><%= current_user.email %></li>
+    <li><%= link_to dashboard_path, class: 'status btn btn-submit text-white h3' do %>
+     <i class="fa fa-code"></i>All bookings
+    <% end %>
+    </li>
+    <li><%= link_to pending_path, class: 'status btn btn-submit text-white h3' do %>
+     <i class="fa fa-code"></i>Pending
+    <% end %>
+    </li>
+    <li><%= link_to accepted_path, class: 'status btn btn-happy text-white h3' do %>
+     <i class="fa fa-code"></i>Accepted
+    <% end %>
+    </li>
+    <li><%= link_to user_space_path, class: 'status btn btn-submit text-white h3' do %>
+      <i class="fa fa-share-alt mr-2"></i>Your spaces
+    <% end %>
+    </li>
+  </ul>
+
+  <h1 class="page-title mb-3">Here are your accepted bookings</h2>
+  <div class="row">
+    <% if @bookings.present? %>
+    <%# <% if @bookings.status == 'accepted' %>
+      <% @bookings.each do |booking| %>
+          <div class="card-trip-popup" style="width:360px">
+            <div class="d-flex justify-content-between">
+              <div class="p-2"><strong>from: </strong><%= booking.start_date %></div>
+              <div class="p-2"><strong>to: </strong> <%= booking.end_date %></div>
+            </div>
+            <%= cl_image_tag booking.space.photos.first.key, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h3><%= booking.space.name %></h3>
+                <h5><%= booking.space.address %></h4>
+                <div> <!-- accept and reject of bookings as an owner-->
+                  <% if current_user == booking.space.user  %>
+                    <div class="booking-actions">
+                      <% if booking.pending? %>
+                        <%= simple_form_for booking do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                          <%= f.submit 'Accept', class: 'btn btn-info' %>
+                        <% end %>
+                        <%= simple_form_for booking do |f| %>
+                          <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                          <%= f.submit 'Reject', class: 'btn btn-info' %>
+                        <% end %>
+                      <% else %>
+                        <p class='booking-tag'><%= booking.status %></p>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <% else %>
+      <div class="row">
+        <div class="message text-center d-flex p-5 flex-column">
+          <h2>You do not have accepted bookings!</h2>
+          <%= link_to root_path do %>
+            <div class="btn btn-submit h1">Let's search!</div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row py-5">
+</div>
