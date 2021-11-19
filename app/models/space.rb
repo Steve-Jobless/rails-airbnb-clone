@@ -6,7 +6,7 @@ class Space < ApplicationRecord
   belongs_to :user
   has_many :bookings
 
-  CATEGORIES = ["restaurant", "cafe", "coffee stand", "gallery", "retail space", "food-truck", "atelier", "antique shop", "cake shop"]
+  CATEGORIES = ["restaurant", "cafe", "coffee stand", "gallery", "retail space", "food-truck", "atelier", "antique shop", "cake shop", "event space", "seminar room"]
   TENTATIVE_ADDRESSES = [
     "1 Chome-11-3 Meguro,  Tokyo 153-0063",
     "2 Chome-24-2 Sendagaya, Tokyo 151-8580",
