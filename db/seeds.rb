@@ -12,17 +12,16 @@ Booking.destroy_all
 Space.destroy_all
 User.destroy_all
 
-# puts 'Creating 5 random Users...'
-# 5.times do
-
-#   User.create!(
-#     email:Faker::Internet.email,
-#     password: "123123",
-#     name: Faker::Hipster.word,
-#   )
-# file = URI.open("https://cdn-japantimes.com/wp-content/uploads/2020/06/Sylvain-Pierre-ok.jpg")
-# User.avatar.attach(io: file, filename: 'avatar.png', content_type: 'image/png')
-# end
+puts 'Creating 5 random Users...'
+5.times do
+ user = User.create!(
+    email:Faker::Internet.email,
+    password: "123123",
+    name: Faker::Hipster.word,
+  )
+  file = URI.open("http://source.unsplash.com/featured/?person&#{rand(1000)}")
+  user.avatar.attach(io: file, filename: 'avatar.png', content_type: 'image/png')
+end
 
 random_user_count = User.count
 puts "...created #{random_user_count} random users"
@@ -124,13 +123,33 @@ impact_hub = Space.create!(
     description: "Impact HUB Tokyo is more than a mere place to work. We have a lot of entrepreneurs and creative minds at our space, working hard and needing coffee. Due to the limited staff availability, we close our cafe every Wednesday and our space is for you to rent.",
     size: 50,
     price: 5_000,
-    user: User.first,
+    user: sylvain,
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
   )
-  file = URI.open("https://lh5.googleusercontent.com/p/AF1QipMNPCA8ikLeatZ9_zzw1A0QxUkTXhGT70jVIUrq=w408-h271-k-no")
-  impact_hub.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
+file = URI.open("https://500px.com/photo/1040213933/2021_1119_15573700-by-etienne-wortham")
+impact_hub.photos.attach(io: file, filename: 'space1.png', content_type: 'image/png')
+file = URI.open("https://lh5.googleusercontent.com/p/AF1QipMNPCA8ikLeatZ9_zzw1A0QxUkTXhGT70jVIUrq=w408-h271-k-no")
+impact_hub.photos.attach(io: file, filename: 'space2.png', content_type: 'image/png')
+file = URI.open("https://500px.com/photo/1040213927/2021_1119_15572900-by-etienne-wortham")
+impact_hub.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
+
+le_wagon_tokyo  = Space.create!(
+    category: "seminar room",
+    name: "Le Wagon Tokyo",
+    address: "Meguro 2-１−3, Tokyo",
+    description: "Le Wagon Tokyo is a coding bootcamp, but it leases a sofa in the back to make up for lost revenues during the pandemic. Our hungry students may need some more snacks.",
+    size: 50,
+    price: 3_000,
+    user: doug,
+    neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
+    safety_note: Space::SAFETY_NOTE.sample,
+    amenities: Space::AMENITIES.sample
+  )
+
+file = URI.open("https://500px.com/photo/1040213926/2021_1119_15575100-by-etienne-wortham")
+le_wagon_tokyo.photos.attach(io: file, filename: 'space1.png', content_type: 'image/png')
 
 # puts 'Creating 10 Booking...'
 # Space.all.each do |space|
