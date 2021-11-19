@@ -128,11 +128,11 @@ impact_hub = Space.create!(
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
   )
-file = URI.open("https://500px.com/photo/1040213933/2021_1119_15573700-by-etienne-wortham")
+file = URI.open("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdrscdn.500px.org%2Fphoto%2F1040213928%2Fm%253D900%2Fv2%3Fsig%3D930d3beac63e85c664b9b833e723da9852acd0ca5e858cda6dd7b818514e69cb")
 impact_hub.photos.attach(io: file, filename: 'space1.png', content_type: 'image/png')
 file = URI.open("https://lh5.googleusercontent.com/p/AF1QipMNPCA8ikLeatZ9_zzw1A0QxUkTXhGT70jVIUrq=w408-h271-k-no")
 impact_hub.photos.attach(io: file, filename: 'space2.png', content_type: 'image/png')
-file = URI.open("https://500px.com/photo/1040213927/2021_1119_15572900-by-etienne-wortham")
+file = URI.open("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdrscdn.500px.org%2Fphoto%2F1040213929%2Fm%253D900%2Fv2%3Fsig%3Daf792a6f6ba2f06f3657c140f18401da694530b827e536bfb6733d41c8f950e2")
 impact_hub.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
 
 le_wagon_tokyo  = Space.create!(
@@ -148,9 +148,8 @@ le_wagon_tokyo  = Space.create!(
     amenities: Space::AMENITIES.sample
   )
 
-file = URI.open("https://500px.com/photo/1040213926/2021_1119_15575100-by-etienne-wortham")
-le_wagon_tokyo.photos.attach(io: file, filename: 'space1.png', content_type: 'image/png')
-
+le_wagon_tokyo.photos.attach(io: File.open('app/assets/images/impact_hub/impact_hub_seminar.png'), filename: 'space1.png', content_type: 'image/png')
+le_wagon_tokyo.photos.attach(io: File.open('app/assets/images/impact_hub/counter.jpeg'), filename: 'space2.png', content_type: 'image/png')
 # puts 'Creating 10 Booking...'
 # Space.all.each do |space|
 #   Booking.create!(
