@@ -12,9 +12,9 @@
       <%= f.input :neighborhood, class: "form-control", placeholder: 'Describe about Neighborhood' %>
       <%= f.input :safety_note, class: "form-control", placeholder: 'Describe about Safety Note' %>
       <%= f.input :category, collection: Space::CATEGORIES, class: "form-control", placeholder: 'Pick one category' %>
-      <%= f.input :photo, as: :file, input_html: { multiple: true } %>
-      <%= f.input :photo2, as: :file, input_html: { multiple: true } %>
-      <%= f.input :photo3, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'List your space!' %>
     <% end %>
   </div>
