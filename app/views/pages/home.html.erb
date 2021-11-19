@@ -1,4 +1,3 @@
-<%= cl_image_tag(@user.avatar.key, :width=>150, :crop=>"fill") if @user.avatar.attached? %>
 <div class="hero">
 <div class="home-video-wrapper">
   <%= video_tag "backgroundvideo.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
