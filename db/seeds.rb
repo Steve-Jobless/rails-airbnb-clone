@@ -137,7 +137,7 @@ impact_hub.photos.attach(io: file, filename: 'space3.png', content_type: 'image/
 le_wagon_tokyo  = Space.create!(
     category: "seminar room",
     name: "Le Wagon Tokyo",
-    address: "Meguro 2-１−3, Tokyo",
+    address: "Meguro 2-1−3, Tokyo",
     description: "Le Wagon Tokyo is a coding bootcamp, but it leases a sofa in the back to make up for lost revenues during the pandemic. Our hungry students may need some more snacks.",
     size: 50,
     price: 3_000,
