@@ -1,20 +1,26 @@
 <div class="container flex">
   <div class="photo-container">
-    <% @space.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, class:"photo-left-round" %>
+    <%= cl_image_tag @space.photos.first.key, class:"photo-left-round" %>
+    <% if  @space.photos.second.present? %>
+      <%= cl_image_tag @space.photos.second.key %>
+    <% else %>
+      <%= image_tag "http://source.unsplash.com/featured/?#{@space.amenities}" %>
     <% end %>
-    <%= image_tag "http://source.unsplash.com/featured/?#{@space.amenities}" %>
-    <%= image_tag "http://source.unsplash.com/featured/?#{@space.category}", class:"photo-right-round" %>
+    <% if  @space.photos.third.present? %>
+      <%= cl_image_tag @space.photos.third.key, class:"photo-right-round"%>
+    <% else %>
+      <%= image_tag "http://source.unsplash.com/featured/?#{@space.category}", class:"photo-right-round" %>
+    <% end %>
   </div>
   <div class="row mb-4">
     <div class="space-detail p-4 col-12 col-lg-7">
       <div class="user-box py-4">
         <div class="notification">
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-          <%# The below is the code to pull the user image from the cloudinary %>
-          <%# if @space.user.avatar.attached? %>
-            <%#= cl_image_tag @space.user.avatar.key, :width=>150, :crop=>"fill" %>
-          <%# end %>
+          <% if @space.user.avatar.attached? %>
+            <%= cl_image_tag @space.user.avatar.key, :crop=>"fill", class:"avatar-xlarge" %>
+          <% else %>
+            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large">
+          <% end %>
           <div class="notification-content">
             <p>
               <h2 class="space-name"><%= @space.name %></h2>
