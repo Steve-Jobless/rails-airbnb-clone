@@ -12,22 +12,24 @@ Booking.destroy_all
 Space.destroy_all
 User.destroy_all
 
-puts 'Creating 5 random Users...'
-5.times do
+# puts 'Creating 5 random Users...'
+# 5.times do
 
-  User.create!(
-    email:Faker::Internet.email,
-    password: "123123",
-    name: Faker::Hipster.word,
-  )
-  # user.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
-end
+#   User.create!(
+#     email:Faker::Internet.email,
+#     password: "123123",
+#     name: Faker::Hipster.word,
+#   )
+# file = URI.open("https://cdn-japantimes.com/wp-content/uploads/2020/06/Sylvain-Pierre-ok.jpg")
+# User.avatar.attach(io: file, filename: 'avatar.png', content_type: 'image/png')
+# end
+
 random_user_count = User.count
 puts "...created #{random_user_count} random users"
 
 puts 'Creating 5 realistic Users...'
 sylvain = User.create!(
-  email:Faker::Internet.email,
+  email: "sylvain@email.com",
   password: "123123",
   name: "Sylvain Pierre"
 )
@@ -36,7 +38,7 @@ file = URI.open("https://cdn-japantimes.com/wp-content/uploads/2020/06/Sylvain-P
 sylvain.avatar.attach(io: file, filename: 'person.png', content_type: 'image/png')
 
 doug = User.create!(
-  email:Faker::Internet.email,
+  email:"doug@email.com",
   password: "123123",
   name: "Douglas Berkeley"
 )
@@ -70,8 +72,8 @@ sasha.avatar.attach(io: file, filename: 'person.png', content_type: 'image/png')
 
 puts "Created #{User.count - random_user_count} realistic Users..."
 
-puts 'Creating 10 Spaces...'
-10.times do |i|
+puts 'Creating 20 Spaces...'
+20.times do |i|
   file = URI.open("http://source.unsplash.com/featured/?#{Space::CATEGORIES.sample}&#{rand(1000)}")
   space = Space.create!(
     name: Faker::Hipster.word,
@@ -98,13 +100,12 @@ puts 'Creating additional Spaces for fun...'
   category = Space::CATEGORIES.sample
   space = Space.create!(
     category: category,
-    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", " #{category} \"Ma vie\"", "Doug's hot #{category}"][i],
-    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", "#{category} \"La vie de Sylvain\"", "Doug's hot #{category}"][i],
+    name: ["Famous horse sausage #{category}", "Eccentric #{category}", "#{category} Supernova", "#{category} Mai+", "#{category} La vie", "Hot #{category}"][i],
     address: Space::MEGURO_ADDRESSES[i],
     description: Faker::Restaurant.description,
     size: rand(10..200),
     price: rand(800..10_000),
-    user: User.first,
+    user: User.all.sample,
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
