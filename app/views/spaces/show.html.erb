@@ -15,7 +15,7 @@
             <p>
               <h2 class="space-name"><%= @space.name %></h2>
             </p>
-            <p><%= @space.address %></p>
+            <p><i class="fas fa-map-marker-alt mr-2"></i><%= @space.address %></p>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
 </div>
 <div class="container">
   <h2>Where you'll be</h2>
-  <p><%= @space.address %></p>
+  <p><i class="fas fa-map-marker-alt mr-2"></i><%= @space.address %></p>
   <div id="map"
         style="width: 100%; height: 250px;"
         data-markers="<%= @markers.to_json %>"
@@ -105,7 +105,7 @@
   let reservation_totals = document.querySelector('#reservation_total');
   let start = new Date(2021, start_month.value, start_day.value)
   let end = new Date(2021, end_month.value, end_day.value)
-  
+
   end_day.addEventListener("change", (event) => {
     event.preventDefault();
     start_year = document.querySelector('#booking_start_date_1i').value;
@@ -119,7 +119,7 @@
     start = new Date(start_year, start_month, start_day)
     end = new Date(end_year, end_month, end_day)
     console.log(`Reserve：${start}から${end}まで`);
-  
+
     const nights = (end - start)/ 86400000 + 1;
     console.log(nights);
     reservation_nights.innerHTML ='';

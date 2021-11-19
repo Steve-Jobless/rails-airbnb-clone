@@ -27,13 +27,13 @@
       </li>
     <% else %>
       <li class="nav-item mr-3">
-        <%= link_to new_user_registration_path, class: "btn btn-primary py-2 px-5" do %>
-          <i class="fas fa-film"></i> Sign up
+        <%= link_to new_user_registration_path, class: "btn btn-signup py-2 px-5" do %>
+          <i class="fas fa-pencil-alt"></i> Sign up
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to new_user_session_path, class: "btn btn-success py-2 px-5 text-white" do %>
-          <i class="fas fa-film"></i> Log in
+        <%= link_to new_user_session_path, class: "btn btn-login py-2 px-5 text-white" do %>
+          <i class="fas fa-sign-in-alt"></i> Log in
         <% end %>
       </li>
     <% end %>

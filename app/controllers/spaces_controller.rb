@@ -11,7 +11,6 @@ class SpacesController < ApplicationController
     if @space.save
       redirect_to space_path(@space)
     else
-      raise
       render :new
     end
   end
@@ -46,6 +45,18 @@ class SpacesController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { space: space })
       }
     end
+  end
+
+  def edit
+    @space = Space.find(params[:id])
+    authorize @space
+  end
+
+  def update
+    @space = Space.find(params[:id])
+    authorize @space
+    @space.update(space_params)
+    redirect_to space_path(@space)
   end
 
   private
