@@ -1,9 +1,6 @@
-<div class="container p-4">
-<h1>List a new space!</h1>
-<p></p>
   <div class="d-flex flex-column justify-content-center p-4">
     <%= simple_form_for @space do |f| %>
-      <%= f.input :name, class: "form-control" %>
+      <%= f.input :name, class: "form-control", placeholder: 'Name of space' %>
       <%= f.input :address, class: "form-control" %>
       <%= f.input :size, class: "form-control" %>
       <%= f.input :price, class: "form-control" %>
@@ -12,10 +9,9 @@
       <%= f.input :neighborhood, class: "form-control", placeholder: 'Describe about Neighborhood' %>
       <%= f.input :safety_note, class: "form-control", placeholder: 'Describe about Safety Note' %>
       <%= f.input :category, collection: Space::CATEGORIES, class: "form-control", placeholder: 'Pick one category' %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photo2, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photo3, as: :file, input_html: { multiple: true } %>
       <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'List your space!' %>
     <% end %>
   </div>
-</div>

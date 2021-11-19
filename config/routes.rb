@@ -7,8 +7,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   resources :bookings
-
+  resources :spaces, only: [:edit, :update]
   get "/dashboard", to: "users#dashboard", as: :dashboard
   get "/search", to: 'spaces#index'
-
+  post "spaces/new", to: 'spaces#new'
+  get "spaces/:id/edit", to: 'spaces#edit', as: :space_edit
+  patch "spaces/:id/update", to: 'spaces#update', as: :space_update
 end

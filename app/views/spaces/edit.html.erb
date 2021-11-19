@@ -1,2 +1,7 @@
-<h1>Spaces#edit</h1>
-<p>Find me in app/views/spaces/edit.html.erb</p>
+<div class="container">
+  <h1 class="page-title my-4">Edit your space!</h1>
+  <%= render 'form' %>
+  <%= link_to space_path(@space), class: 'btn btn-secondary py-3 my-3' do %>
+    <i class="far fa-hand-point-left mr-2"></i>Go back to your space
+  <% end %>
+</div>
