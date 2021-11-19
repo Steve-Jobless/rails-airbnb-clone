@@ -1,6 +1,10 @@
 <div class="container flex">
-  <div class="row flex-column">
-    <img src="https://cdn.pixabay.com/index/2021/11/02/07-35-50-740_1440x550.jpg" style="height:300px;">
+  <div class="photo-container">
+    <% @space.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, class:"photo-left-round" %>
+    <% end %>
+    <%= image_tag "http://source.unsplash.com/featured/?#{@space.amenities}" %>
+    <%= image_tag "http://source.unsplash.com/featured/?#{@space.category}", class:"photo-right-round" %>
   </div>
   <div class="row mb-4">
     <div class="space-detail p-4 col-12 col-lg-7">
@@ -11,7 +15,7 @@
             <p>
               <h2 class="space-name"><%= @space.name %></h2>
             </p>
-            <p><%= @space.address %></p>
+            <p><i class="fas fa-map-marker-alt mr-2"></i><%= @space.address %></p>
           </div>
         </div>
       </div>
@@ -22,7 +26,7 @@
           </div>
           <div class="card-feature-product">
             <h2>Category</h2>
-            <p><%= @space.category %></p>
+            <p><%= @space.category.capitalize %></p>
           </div>
         </div>
         <div class="card-feature">
@@ -55,7 +59,7 @@
       </div>
       <div class="description">
         <h2>Description</h2>
-        <p><%= @space.description %></p>
+        <p><%= @space.description.truncate(300, separator: '.') %></p>
       </div>
     </div>
     <div class="reservation-container col-12 col-lg-5">
@@ -65,9 +69,8 @@
           <%= simple_form_for [@space, @booking] do |f| %>
             　
             <div class="d-flex flex-column justify-content-center">
-              <%= f.input :start_date, as: :date, html5: true, class: 'start_date form-control' %>
-              <%= f.input :end_date, as: :date, html5: true, class: 'end_date form-control'  %>
-              <%= f.hidden_field :user_id, value: @space.user_id %>
+              <%= f.input :start_date,  class: 'start_date form-control' %>
+              <%= f.input :end_date,  class: 'end_date form-control'  %>
               <%= f.submit class: 'btn btn-secondary btn-submit py-3 my-3', value: 'Booking !', "data-toggle":"modal", "data-target":"#exampleModalCenter" %>
             </div>
           <% end %>
@@ -83,7 +86,7 @@
 </div>
 <div class="container">
   <h2>Where you'll be</h2>
-  <p><%= @space.address %></p>
+  <p><i class="fas fa-map-marker-alt mr-2"></i><%= @space.address %></p>
   <div id="map"
         style="width: 100%; height: 250px;"
         data-markers="<%= @markers.to_json %>"

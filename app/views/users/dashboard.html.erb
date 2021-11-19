@@ -3,7 +3,7 @@
     <li><img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /></li>
     <li><%= current_user.email %></li>
   </ul>
-  <h2>Here are your bookings:</h2>
+  <h2 class="mb-3">Here are your bookings</h2>
       <div class="row">
         <% @bookings.each do |booking| %>
           <div class="card-trip-popup" style="width:360px">
@@ -16,12 +16,138 @@
               <div>
                 <h3><%= booking.space.name %></h3>
                 <h5><%= booking.space.address %></h4>
+                <div> <!-- accept and reject of bookings as an owner-->
+       <% if current_user == booking.space.user  %>
+       <div class="booking-actions">
+        <% if booking.pending? %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+            <%= f.submit 'Accept', class: 'btn btn-info' %>
+          <% end %>
+          <%= simple_form_for booking do |f| %>
+            <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+            <%= f.submit 'Reject', class: 'btn btn-info' %>
+          <% end %>
+        <% else %>
+          <p class='booking-tag'><%= booking.status %></p>
+        <% end %>
+      </div>
+      <% else %>
+        <p class='booking-tag'><%= booking.status %></p>
+      <% end %>
+      </div> <!-- closing tag of accept and reject as an owner-->
               </div>
               <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
               <p class="card-trip-user avatar-square"><strong> # <%= booking.id %></strong></p>
             </div>
         </div>
       <% end %>
+
       </div>
+
+<div class="row py-5">
+<!-- Tab content -->
+<div class="container_tab">
+  <input type="radio" id="tab1" name="tab" checked>
+  <label for="tab1"><i class="fa fa-code"></i> Bookings</label>
+  <input type="radio" id="tab2" name="tab">
+  <label for="tab2"><i class="fa fa-history"></i> Pending</label>
+  <input type="radio" id="tab3" name="tab">
+  <label for="tab3"><i class="fa fa-pencil"></i> Rejected</label>
+  <input type="radio" id="tab4" name="tab">
+  <label for="tab4"><i class="fa fa-share-alt"></i> Rooms</label>
+  <div class="line"></div>
+  <div class="content-container">
+    <div class="content" id="c1">
+      <h3>Bookings</h3>
+      <div class="container">
+        <div class="row">
+          <% @bookings.each do |booking| %>
+            <div class="card-trip-popup" style="width:360px">
+              <div class="d-flex justify-content-between">
+                <div class="p-2"><strong>from: </strong><%= booking.start_date %></div>
+                <div class="p-2"><strong>to: </strong> <%= booking.end_date %></div>
+              </div>
+              <%= cl_image_tag booking.space.photos.first.key, crop: :fill %>
+              <div class="card-trip-infos">
+                <div>
+                  <h3><%= booking.space.name %></h3>
+                  <h5><%= booking.space.address %></h4>
+                  <div> <!-- accept and reject of bookings as an owner-->
+                  <% if current_user == booking.space.user  %>
+                  <div class="booking-actions">
+                    <% if booking.pending? %>
+                      <%= simple_form_for booking do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                        <%= f.submit 'Accept', class: 'btn btn-info' %>
+                      <% end %>
+                      <%= simple_form_for booking do |f| %>
+                        <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                        <%= f.submit 'Reject', class: 'btn btn-info' %>
+                      <% end %>
+                    <% else %>
+                      <p class='booking-tag'><%= booking.status %></p>
+                    <% end %>
+                  </div>
+                  <% else %>
+                    <p class='booking-tag'><%= booking.status %></p>
+                  <% end %>
+                </div> <!-- closing tag of accept and reject as an owner-->
+                </div>
+                <h2 class="card-trip-pricing">¥<%= (booking.end_date - booking.start_date).to_i * booking.space.price %></h2>
+                <p class="card-trip-user avatar-square"><strong> # <%= booking.id %></strong></p>
+              </div>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="content" id="c2">
+      <h3>Pending</h3>
+      <div class="box-pending">
+      <p>Here are your ending bookings.</p>
+      <% @bookings.each_with_index do |booking, index| %>
+        <% if booking.status == 'pending' %>
+          <%= index + 1 %>. <%= booking.start_date %> - <%= booking.end_date %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div class="content" id="c3">
+      <h3>Rejected</h3>
+      <p>Owner has rejected.</p>
+      <div class="box-pending">
+        <% @bookings.each do |booking| %>
+          <% if booking.status == 'rejected' %>
+            <%= booking.start_date %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="content" id="c4">
+      <h3>Your rooms</h3>
+      <div class="box-pending">
+      <table>
+        <% @spaces.each_with_index do |space, index| %>
+          <tr>
+          <td><p><%= index + 1 %>. <%= space.name %></p></td>
+          <td>¥ <%= space.price %>/ day</td>
+          <td>
+            <%= link_to space_edit_path(space) do %>
+              <div class="btn btn-outline-secondary">Update</div>
+            <% end %>
+            <%= link_to space_path(space) do %>
+              <div class="btn btn-outline-success">See details</div>
+            <% end %>
+          </td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+      </div>
+    </div>
   </div>
+</div>
+</div>
+</div>
 </div>

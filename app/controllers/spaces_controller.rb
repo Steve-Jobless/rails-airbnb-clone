@@ -1,10 +1,12 @@
 class SpacesController < ApplicationController
   def new
     @space = Space.new
+    authorize @space
   end
 
   def create
     @space = Space.new(space_params)
+    @space.user = current_user
     authorize @space
     if @space.save
       redirect_to space_path(@space)
@@ -45,9 +47,21 @@ class SpacesController < ApplicationController
     end
   end
 
+  def edit
+    @space = Space.find(params[:id])
+    authorize @space
+  end
+
+  def update
+    @space = Space.find(params[:id])
+    authorize @space
+    @space.update(space_params)
+    redirect_to space_path(@space)
+  end
+
   private
 
   def space_params
-    params.require(:space).permit(:name, :description, :price, :category, :size, :address, :photos)
+    params.require(:space).permit(:name, :description, :price, :category, :size, :address, :photos, :amenities, :safety_note, :neighborhood)
   end
 end
