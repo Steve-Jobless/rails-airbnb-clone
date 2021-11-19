@@ -1,43 +1,22 @@
 <div class="container">
-  <ul class="avatar-dashboard">
-    <li><img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /></li>
-    <li><%= current_user.email %></li>
-    <li><%= link_to dashboard_path, class: 'status btn btn-submit text-white h3' do %>
-     <i class="fa fa-code"></i>All bookings
-    <% end %>
-    </li>
-    <li><%= link_to pending_path, class: 'status btn btn-submit text-white h3' do %>
-     <i class="fa fa-code"></i>Pending
-    <% end %>
-    </li>
-    <li><%= link_to accepted_path, class: 'status btn btn-submit text-white h3' do %>
-     <i class="fa fa-code"></i>Accepted
-    <% end %>
-    </li>
-    <li><%= link_to user_space_path, class: 'status btn btn-happy text-white h3' do %>
-      <i class="fa fa-share-alt mr-2"></i>Your spaces
-    <% end %>
-    </li>
-  </ul>
+  <%= render 'subnavbar' %>
   <h1 class="page-title mb-3">Here are your spaces</h1>
   <div class="row">
       <% @spaces.each_with_index do |space, index| %>
-      <div class="card-trip-popup" style="width:360px">
-        <div class="d-flex justify-content-between">
-          <div class="p-2"><strong>from: </strong><%= space.name %></div>
-          <div class="p-2"><strong>to: </strong> <%= space.size %>㎡</div>
-        </div>
-        <%= cl_image_tag space.photos.first.key, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <h3><%= space.name %></h3>
-            <h5><%= space.address %></h5>
-            <h5><%= space.size %>㎡</h5>
+        <%= link_to space_path(space) do %>
+          <div class="card-trip-popup" style="width:360px">
+            <%= cl_image_tag space.photos.first.key, crop: :fill %>
+            <div class="card-trip-infos">
+              <div>
+                <h3><%= space.name %></h3>
+                <h5><i class="fas fa-map-marker-alt mr-2"></i><%= space.address %></h5>
+                <h5>size: <%= space.size %>㎡</h5>
+              </div>
+              <h2 class="card-trip-pricing">¥<%= space.price %>/day</h2>
+              <p class="card-trip-user avatar-square"><strong> # <%= space.id %></strong></p>
+            </div>
           </div>
-          <h2 class="card-trip-pricing">¥<%= space.price %></h2>
-          <p class="card-trip-user avatar-square"><strong> # <%= space.id %></strong></p>
-        </div>
-      </div>
+      <% end %>
     <% end %>
     </div>
   </div>
