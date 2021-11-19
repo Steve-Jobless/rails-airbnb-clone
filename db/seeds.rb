@@ -25,8 +25,8 @@ puts 'Creating 10 Users...'
 end
 puts "...created #{User.count} users"
 
-puts 'Creating 10 Spaces...'
-10.times do |i|
+puts 'Creating 20 Spaces...'
+20.times do |i|
   file = URI.open("http://source.unsplash.com/featured/?#{Space::CATEGORIES.sample}&#{rand(1000)}")
   space = Space.create!(
     name: Faker::Hipster.word,
@@ -53,13 +53,12 @@ puts 'Creating additional Spaces for fun...'
   category = Space::CATEGORIES.sample
   space = Space.create!(
     category: category,
-    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", " #{category} \"Ma vie\"", "Doug's hot #{category}"][i],
-    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", "#{category} \"La vie de Sylvain\"", "Doug's hot #{category}"][i],
+    name: ["Famous horse sausage #{category}", "Eccentric #{category}", "#{category} Supernova", "#{category} Mai+", "#{category} La vie", "Hot #{category}"][i],
     address: Space::MEGURO_ADDRESSES[i],
     description: Faker::Restaurant.description,
     size: rand(10..200),
     price: rand(800..10_000),
-    user: User.first,
+    user: User.all.sample,
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
