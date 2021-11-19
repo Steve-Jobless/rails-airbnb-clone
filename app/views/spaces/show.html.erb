@@ -11,6 +11,10 @@
       <div class="user-box py-4">
         <div class="notification">
           <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+          <%# The below is the code to pull the user image from the cloudinary %>
+          <%# if @space.user.avatar.attached? %>
+            <%#= cl_image_tag @space.user.avatar.key, :width=>150, :crop=>"fill" %>
+          <%# end %>
           <div class="notification-content">
             <p>
               <h2 class="space-name"><%= @space.name %></h2>
