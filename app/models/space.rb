@@ -18,7 +18,7 @@ class Space < ApplicationRecord
     "7 Chome-14-15 Ginza, Tokyo 104-0061",
     "6-chōme-50-10 Honchō, Naka Ward, Yokohama, Kanagawa 231-0005",
     "1-1 Udagawachō, Shibuya, Tokyo 150-8010",
-    "15-1 Udagawachō, Shibuya, Tokyo 150-8010",
+    "13-11 Udagawachō, Shibuya, Tokyo 150-8010",
     "3-3 Udagawacho, Shibuya City, Tokyo 150-0042",
     "1 Chome-6-12 Jinnan, Shibuya City, Tokyo 150-0041",
     "1 Chome-16-11 Tomigaya, Shibuya City, Tokyo 151-0063",
