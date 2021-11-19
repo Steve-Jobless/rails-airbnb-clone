@@ -89,7 +89,6 @@ puts 'Creating 20 Spaces...'
   # Active records requires this specfic format.
   space.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
-puts "...created #{Space.count} spaces"
 
 created_space = Space.count
 puts "...created #{created_space} spaces"
@@ -117,8 +116,8 @@ addtional_space = Space.count - created_space
 puts "...created #{addtional_space} additional spaces"
 
 impact_hub = Space.create!(
-    category: "cafe",
-    name: "Impact Hub Coffe Space",
+    category: "event space",
+    name: "Impact Hub",
     address: "Meguro 2-１−3, Tokyo",
     description: "Impact HUB Tokyo is more than a mere place to work. We have a lot of entrepreneurs and creative minds at our space, working hard and needing coffee. Due to the limited staff availability, we close our cafe every Wednesday and our space is for you to rent.",
     size: 50,
@@ -126,14 +125,14 @@ impact_hub = Space.create!(
     user: sylvain,
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
-    amenities: Space::AMENITIES.sample
+    amenities: "Espresso machine, impeccable Wifi that never fails, large kitchen, awesome people"
   )
 file = URI.open("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdrscdn.500px.org%2Fphoto%2F1040213928%2Fm%253D900%2Fv2%3Fsig%3D930d3beac63e85c664b9b833e723da9852acd0ca5e858cda6dd7b818514e69cb")
 impact_hub.photos.attach(io: file, filename: 'space1.png', content_type: 'image/png')
 file = URI.open("https://lh5.googleusercontent.com/p/AF1QipMNPCA8ikLeatZ9_zzw1A0QxUkTXhGT70jVIUrq=w408-h271-k-no")
 impact_hub.photos.attach(io: file, filename: 'space2.png', content_type: 'image/png')
 file = URI.open("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fdrscdn.500px.org%2Fphoto%2F1040213929%2Fm%253D900%2Fv2%3Fsig%3Daf792a6f6ba2f06f3657c140f18401da694530b827e536bfb6733d41c8f950e2")
-impact_hub.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
+impact_hub.photos.attach(io: file, filename: 'space3.png', content_type: 'image/png')
 
 le_wagon_tokyo  = Space.create!(
     category: "seminar room",
@@ -150,6 +149,8 @@ le_wagon_tokyo  = Space.create!(
 
 le_wagon_tokyo.photos.attach(io: File.open('app/assets/images/impact_hub/impact_hub_seminar.png'), filename: 'space1.png', content_type: 'image/png')
 le_wagon_tokyo.photos.attach(io: File.open('app/assets/images/impact_hub/counter.jpeg'), filename: 'space2.png', content_type: 'image/png')
+le_wagon_tokyo.photos.attach(io: File.open('app/assets/images/impact_hub/counter2.jpeg'), filename: 'space2.png', content_type: 'image/png')
+
 # puts 'Creating 10 Booking...'
 # Space.all.each do |space|
 #   Booking.create!(
