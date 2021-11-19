@@ -17,7 +17,7 @@
       <div class="user-box py-4">
         <div class="notification">
           <% if @space.user.avatar.attached? %>
-            <%= cl_image_tag @space.user.avatar.key, :width=>100, :crop=>"fill", class:"avatar-large" %>
+            <%= cl_image_tag @space.user.avatar.key, :crop=>"fill", class:"avatar-xlarge" %>
           <% else %>
             <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large">
           <% end %>
@@ -115,7 +115,7 @@
   let reservation_totals = document.querySelector('#reservation_total');
   let start = new Date(2021, start_month.value, start_day.value)
   let end = new Date(2021, end_month.value, end_day.value)
-  
+
   end_day.addEventListener("change", (event) => {
     event.preventDefault();
     start_year = document.querySelector('#booking_start_date_1i').value;
@@ -129,7 +129,7 @@
     start = new Date(start_year, start_month, start_day)
     end = new Date(end_year, end_month, end_day)
     console.log(`Reserve：${start}から${end}まで`);
-  
+
     const nights = (end - start)/ 86400000 + 1;
     console.log(nights);
     reservation_nights.innerHTML ='';
