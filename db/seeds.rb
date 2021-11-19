@@ -14,11 +14,13 @@ User.destroy_all
 
 puts 'Creating 5 random Users...'
 5.times do
+
   User.create!(
     email:Faker::Internet.email,
     password: "123123",
     name: Faker::Hipster.word,
   )
+  # user.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
 random_user_count = User.count
 puts "...created #{random_user_count} random users"
@@ -82,13 +84,52 @@ puts 'Creating 10 Spaces...'
     neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
     safety_note: Space::SAFETY_NOTE.sample,
     amenities: Space::AMENITIES.sample
-
   )
   # Active records requires this specfic format.
   space.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
 end
 puts "...created #{Space.count} spaces"
 
+created_space = Space.count
+puts "...created #{created_space} spaces"
+puts 'Creating additional Spaces for fun...'
+
+6.times do |i|
+  category = Space::CATEGORIES.sample
+  space = Space.create!(
+    category: category,
+    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", " #{category} \"Ma vie\"", "Doug's hot #{category}"][i],
+    name: ["Galym's famous horse sausage #{category}", "Hirofumi's eccentric #{category}", "#{category} Etienne Supernova", "#{category} Mai+", "#{category} \"La vie de Sylvain\"", "Doug's hot #{category}"][i],
+    address: Space::MEGURO_ADDRESSES[i],
+    description: Faker::Restaurant.description,
+    size: rand(10..200),
+    price: rand(800..10_000),
+    user: User.first,
+    neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
+    safety_note: Space::SAFETY_NOTE.sample,
+    amenities: Space::AMENITIES.sample
+  )
+  file = URI.open("http://source.unsplash.com/featured/?#{space.category}&#{rand(1000)}")
+  space.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
+end
+
+addtional_space = Space.count - created_space
+puts "...created #{addtional_space} additional spaces"
+
+impact_hub = Space.create!(
+    category: "cafe",
+    name: "Impact Hub Coffe Space",
+    address: "Meguro 2-１−3, Tokyo",
+    description: "Impact HUB Tokyo is more than a mere place to work. We have a lot of entrepreneurs and creative minds at our space, working hard and needing coffee. Due to the limited staff availability, we close our cafe every Wednesday and our space is for you to rent.",
+    size: 50,
+    price: 5_000,
+    user: User.first,
+    neighborhood: Space::TENTATIVE_NEIGHB_MESSAGES.sample,
+    safety_note: Space::SAFETY_NOTE.sample,
+    amenities: Space::AMENITIES.sample
+  )
+  file = URI.open("https://lh5.googleusercontent.com/p/AF1QipMNPCA8ikLeatZ9_zzw1A0QxUkTXhGT70jVIUrq=w408-h271-k-no")
+  impact_hub.photos.attach(io: file, filename: 'space.png', content_type: 'image/png')
 
 # puts 'Creating 10 Booking...'
 # Space.all.each do |space|
