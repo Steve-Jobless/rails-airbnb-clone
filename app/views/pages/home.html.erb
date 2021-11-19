@@ -1,11 +1,18 @@
+
 <div class="hero">
-  <div class="background-container" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'outside.jpg' %>); width: 100%; height: 100%;">
-    <div class="container text-center">
-      <div class="container text-center" style="padding:120px 0;">
-        <div class="container text-center pb-5">
+  <div class="background-container">
+    <%# background %>
+    <div class="background src1"></div>
+    <div class="background src2"></div>
+    <div class="background src3"></div>
+    <div class="background src4"></div>
+    <%# /background %>
+      <div class="container text-center" style="padding:250px 0;">
+        <div class="container text-center pb-5 boxString">
           <h1 class="text-white" style="font-size:32px">Pop a pop-up shop!</h1>
           <h2 class="text-white">The best deals for space rental</h2>
         </div>
+        <%# searchform %>
         <div class="search-form" style="margin: 0 auto;">
           <div class="search-container">
             <div class="search-box">
@@ -20,12 +27,12 @@
             </div>
           </div>
         </div>
+        <%# /searchform %>
       </div>
-    </div>
   </div>
   <div class="container text-center bg-light py-5 my-5">
-    <h1 style="color:$dark">Hot Spots</h1>
-    <!-- <div class="splide">
+      <h1 class="mb-4" style="color: #555555; font-size: 30px;">Hot Spots</h1>
+      <!-- <div class="splide">
           <div class="splide__track">
             <ul class="splide__list">
               <%= link_to spaces_path(address:"Shibuya") do %>
@@ -60,31 +67,31 @@
           </div>
         </div> -->
     <div class="cards d-flex justify-content-center">
-      <div class="p-4">
+      <div class="p-2">
         <%= link_to spaces_path(address:"Shibuya") do %>
-          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/104802508/image.jpg)">
+          <div class="card-category" style="width: 240px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.timeout.com/images/104802508/image.jpg)">
             Shibuya
           </div>
         <% end %>
       </div>
-      <div class="p-4">
+      <div class="p-2">
         <%= link_to spaces_path(address:"Ginza") do %>
-          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Ginza-WAKO_at_night.jpg)">
+          <div class="card-category" style="width: 240px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://upload.wikimedia.org/wikipedia/commons/5/5b/Ginza-WAKO_at_night.jpg)">
             Ginza
           </div>
         <% end %>
       </div>
-      <div class="p-4">
-        <%= link_to spaces_path(address:"Meguro") do %>
-          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://hoikutizu.jp/get_image/article/meguroku_licensed_nursery_school.jpeg)">
-            Meguro
+      <div class="p-2">
+        <%= link_to spaces_path(address:"Yokohama") do %>
+          <div class="card-category" style="width: 240px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2018/01/25-Things-to-Do-in-Yokohama-lead.jpg)">
+            Yokohama
           </div>
         <% end %>
       </div>
-      <div class="p-4">
-        <%= link_to spaces_path(address:"Yokohama") do %>
-          <div class="card-category" style="width: 340px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://gaijinpot.scdn3.secure.raxcdn.com/app/uploads/sites/4/2018/01/25-Things-to-Do-in-Yokohama-lead.jpg)">
-            Yokohama
+      <div class="p-2">
+        <%= link_to spaces_path(address:"Meguro") do %>
+          <div class="card-category" style="width: 240px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://a0.cdn.japantravel.com/photo/12984-74745/1000/tokyo-cherry-blossoms-meguro-river-74745.jpg)">
+            Meguro
           </div>
         <% end %>
       </div>
