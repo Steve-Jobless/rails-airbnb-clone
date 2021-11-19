@@ -12,22 +12,24 @@ Booking.destroy_all
 Space.destroy_all
 User.destroy_all
 
-puts 'Creating 5 random Users...'
-5.times do
+# puts 'Creating 5 random Users...'
+# 5.times do
 
-  User.create!(
-    email:Faker::Internet.email,
-    password: "123123",
-    name: Faker::Hipster.word,
-  )
-  # user.photo.attach(io: file, filename: 'space.png', content_type: 'image/png')
-end
+#   User.create!(
+#     email:Faker::Internet.email,
+#     password: "123123",
+#     name: Faker::Hipster.word,
+#   )
+# file = URI.open("https://cdn-japantimes.com/wp-content/uploads/2020/06/Sylvain-Pierre-ok.jpg")
+# User.avatar.attach(io: file, filename: 'avatar.png', content_type: 'image/png')
+# end
+
 random_user_count = User.count
 puts "...created #{random_user_count} random users"
 
 puts 'Creating 5 realistic Users...'
 sylvain = User.create!(
-  email:Faker::Internet.email,
+  email: "sylvain@email.com",
   password: "123123",
   name: "Sylvain Pierre"
 )
@@ -36,7 +38,7 @@ file = URI.open("https://cdn-japantimes.com/wp-content/uploads/2020/06/Sylvain-P
 sylvain.avatar.attach(io: file, filename: 'person.png', content_type: 'image/png')
 
 doug = User.create!(
-  email:Faker::Internet.email,
+  email:"doug@email.com",
   password: "123123",
   name: "Douglas Berkeley"
 )
