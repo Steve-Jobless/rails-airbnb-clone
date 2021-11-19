@@ -5,40 +5,40 @@
       <span class="logo-name"><strong>Nomads</strong></span>
     <% end %>
   </h1>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto px-3 header-btn d-flex align-items-content">
-    <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to new_space_path, class: "nav-link mr-4" do %>
-        　　<i class="fas fa-magic mr-2"></i>List a space
-        <% end %>
-      </li>
-      <li class="nav-item dropdown">
-        <%#= cl_image_tag @user.avatar.key, :width=>150, :crop=>"fill" %>
-        <%# <%= cl_image_tag @user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %> %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
-      </li>
-    <% else %>
-      <li class="nav-item mr-3">
-        <%= link_to new_user_registration_path, class: "btn btn-signup py-2 px-5" do %>
-          <i class="fas fa-pencil-alt"></i> Sign up
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to new_user_session_path, class: "btn btn-login py-2 px-5 text-white" do %>
-          <i class="fas fa-sign-in-alt"></i> Log in
-        <% end %>
-      </li>
-    <% end %>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to new_space_path, class: "nav-link mr-4" do %>
+            　　<i class="fas fa-magic mr-2"></i>List a space
+          <% end %>
+        </li>
+        <li class="nav-item dropdown">
+          <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key,  class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false   %>
+          <%else %>
+            <%= image_tag "logo_temp.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item mr-3">
+          <%= link_to new_user_registration_path, class: "btn btn-signup py-2 px-5" do %>
+            <i class="fas fa-pencil-alt"></i> Sign up
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "btn btn-login py-2 px-5 text-white" do %>
+            <i class="fas fa-sign-in-alt"></i> Log in
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
